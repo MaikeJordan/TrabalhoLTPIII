@@ -25,11 +25,16 @@ public class Email {
 
     public void setNomeEmail(String NomeEmail) {
         for (int i = 0; i < NomeEmail.length(); i++) {
-            if (NomeEmail.indexOf(i) == '@'){
-                this.NomeEmail = NomeEmail;
-            } 
+            if (NomeEmail.indexOf(i) == '@') {
+                for (int x = i; x < NomeEmail.length(); x++) {
+                    if (NomeEmail.indexOf(i) == '.') {
+                        this.NomeEmail = NomeEmail;
+                    }
+                }
+            }
         }
     }
+    
 
     public int getIdEmail() {
         return IdEmail;
