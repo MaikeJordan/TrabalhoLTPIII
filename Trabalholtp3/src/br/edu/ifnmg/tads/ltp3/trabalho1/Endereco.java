@@ -108,6 +108,4 @@ public class Endereco {
     public String toString() {
         return "Endereco{" + "Estado=" + Estado + ", Cidade=" + Cidade + ", Bairro=" + Bairro + ", Rua=" + Rua + ", Numero=" + Numero + '}';
     }
-    
-    
 }
