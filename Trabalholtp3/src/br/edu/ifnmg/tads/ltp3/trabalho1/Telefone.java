@@ -8,5 +8,10 @@ package br.edu.ifnmg.tads.ltp3.trabalho1;
  * @author Maike Jordan
  */
 public class Telefone {
+    private int Numero;
+    
+    Telefone(){
+       Numero = 0;    
+    }
     
 }
