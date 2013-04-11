@@ -49,5 +49,4 @@ public class Telefone {
         return "Telefone{" + "Numero=" + Numero + '}';
     }
     
-    
 }
