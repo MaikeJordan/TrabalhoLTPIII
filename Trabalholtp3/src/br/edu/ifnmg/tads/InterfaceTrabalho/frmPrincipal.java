@@ -56,6 +56,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jMenu1.setText("Cadastro");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         MenuItemPessoa.setText("Cliente");
         MenuItemPessoa.addActionListener(new java.awt.event.ActionListener() {
@@ -74,6 +79,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem6);
 
         jMenuItem5.setText("Metodo Pagamento");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem5);
 
         jMenuBar1.add(jMenu1);
@@ -155,6 +165,21 @@ public class frmPrincipal extends javax.swing.JFrame {
         janela.setVisible(true);
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+        frmMetodoPagamento janela = new frmMetodoPagamento();
+        add(janela);
+        janela.setVisible(true);
+        
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        frmMetodoPagamento janela = new frmMetodoPagamento();
+        add(janela);
+        janela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -184,6 +209,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new frmPrincipal().setVisible(true);
             }
