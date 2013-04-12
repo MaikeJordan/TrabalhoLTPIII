@@ -10,12 +10,12 @@ import java.util.Objects;
  *
  * @author Maike Jordan
  */
-public class MetodoCompra {
+public class MetodoPagamento {
     
     private int CodMetodoCompra;
     private String Descricao;
 
-    public MetodoCompra(){
+    public MetodoPagamento(){
         this.CodMetodoCompra = 0;
         this.Descricao = "";
     }
@@ -52,7 +52,7 @@ public class MetodoCompra {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final MetodoCompra other = (MetodoCompra) obj;
+        final MetodoPagamento other = (MetodoPagamento) obj;
         if (this.CodMetodoCompra != other.CodMetodoCompra) {
             return false;
         }

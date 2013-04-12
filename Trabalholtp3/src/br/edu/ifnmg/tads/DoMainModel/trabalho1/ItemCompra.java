@@ -15,10 +15,10 @@ public class ItemCompra {
     private int IdItemCompra;
     private int Quantidade;
     private float ValorUnitario;
-    private MetodoCompra Metodo;
+    private MetodoPagamento Metodo;
     private Produto Produt;
 
-    public ItemCompra(int IdItemCompra, int Quantidade, float ValorUnitario, MetodoCompra Metodo, Produto Produt) {
+    public ItemCompra(int IdItemCompra, int Quantidade, float ValorUnitario, MetodoPagamento Metodo, Produto Produt) {
         this.IdItemCompra = IdItemCompra;
         this.Quantidade = Quantidade;
         this.ValorUnitario = ValorUnitario;
@@ -50,11 +50,11 @@ public class ItemCompra {
         this.ValorUnitario = ValorUnitario;
     }
 
-    public MetodoCompra getMetodo() {
+    public MetodoPagamento getMetodo() {
         return Metodo;
     }
 
-    public void setMetodo(MetodoCompra Metodo) {
+    public void setMetodo(MetodoPagamento Metodo) {
         this.Metodo = Metodo;
     }
 
