@@ -58,9 +58,19 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenu1.setText("Cadastro");
 
         MenuItemPessoa.setText("Cliente");
+        MenuItemPessoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuItemPessoaActionPerformed(evt);
+            }
+        });
         jMenu1.add(MenuItemPessoa);
 
         jMenuItem6.setText("Produto");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem6);
 
         jMenuItem5.setText("Metodo Pagamento");
@@ -130,6 +140,20 @@ public class frmPrincipal extends javax.swing.JFrame {
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void MenuItemPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemPessoaActionPerformed
+        // TODO add your handling code here:
+        frmCadastroCliente janela = new frmCadastroCliente();
+        add(janela);
+        janela.setVisible(true);
+    }//GEN-LAST:event_MenuItemPessoaActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        frmCadastroProduto janela = new frmCadastroProduto();
+        add(janela);
+        janela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     /**
      * @param args the command line arguments
