@@ -108,5 +108,5 @@ public class ItemCompra {
     public String toString() {
         return "ItemCompra{" + "IdItemCompra=" + IdItemCompra + ", Quantidade=" + Quantidade + ", ValorUnitario=" + ValorUnitario + ", Metodo=" + Metodo + ", Produt=" + Produt + '}';
     }
-    s
+    
 }
