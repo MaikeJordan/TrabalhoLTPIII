@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author Maike Jordans
+ * @author Maike Jordan
  */
 public class Estoque {
     

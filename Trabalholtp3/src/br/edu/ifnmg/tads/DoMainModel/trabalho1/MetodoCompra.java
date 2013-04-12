@@ -8,7 +8,7 @@ import java.util.Objects;
 
 /**
  *
- * @author aluno
+ * @author Maike Jordan
  */
 public class MetodoCompra {
     

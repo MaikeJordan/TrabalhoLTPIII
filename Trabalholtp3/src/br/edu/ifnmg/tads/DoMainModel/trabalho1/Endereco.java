@@ -8,7 +8,7 @@ import java.util.Objects;
 
 /**
  *
- * @author alisson
+ * @author Maike Jordan
  */
 public class Endereco {
     
