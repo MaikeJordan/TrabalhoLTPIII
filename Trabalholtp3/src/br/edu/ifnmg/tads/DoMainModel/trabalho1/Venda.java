@@ -14,33 +14,31 @@ import java.util.Objects;
  */
 public class Venda {
     
-    private List<Pessoa> Pessoas;
-    private List<Usuario> User;
+    private Pessoa Pessoas;
+    private Usuario User;
     private float ValorTotal;
     private int IdVenda;
-    
-    Venda(){
-    
-        this.Pessoas = new LinkedList<Pessoa>();
-        this.User = new LinkedList<Usuario>();
-        ValorTotal = 0;
-        IdVenda = 0; 
-        
+
+    public Venda(Pessoa Pessoas, Usuario User, float ValorTotal, int IdVenda) {
+        this.Pessoas = Pessoas;
+        this.User = User;
+        this.ValorTotal = ValorTotal;
+        this.IdVenda = IdVenda;
     }
 
-    public List<Pessoa> getPessoas() {
+    public Pessoa getPessoas() {
         return Pessoas;
     }
 
-    public void setPessoas(List<Pessoa> Pessoas) {
+    public void setPessoas(Pessoa Pessoas) {
         this.Pessoas = Pessoas;
     }
 
-    public List<Usuario> getUser() {
+    public Usuario getUser() {
         return User;
     }
 
-    public void setUser(List<Usuario> User) {
+    public void setUser(Usuario User) {
         this.User = User;
     }
 
@@ -63,10 +61,10 @@ public class Venda {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 79 * hash + Objects.hashCode(this.Pessoas);
-        hash = 79 * hash + Objects.hashCode(this.User);
-        hash = 79 * hash + Float.floatToIntBits(this.ValorTotal);
-        hash = 79 * hash + this.IdVenda;
+        hash = 29 * hash + Objects.hashCode(this.Pessoas);
+        hash = 29 * hash + Objects.hashCode(this.User);
+        hash = 29 * hash + Float.floatToIntBits(this.ValorTotal);
+        hash = 29 * hash + this.IdVenda;
         return hash;
     }
 
@@ -97,8 +95,6 @@ public class Venda {
     @Override
     public String toString() {
         return "Venda{" + "Pessoas=" + Pessoas + ", User=" + User + ", ValorTotal=" + ValorTotal + ", IdVenda=" + IdVenda + '}';
-    }
-    
-    
+    }  
     
 }
