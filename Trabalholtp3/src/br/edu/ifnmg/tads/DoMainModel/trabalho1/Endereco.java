@@ -12,6 +12,7 @@ import java.util.Objects;
  */
 public class Endereco {
     
+    public int IdEndereco;
     public String Estado;
     public String Cidade;
     public String Bairro;
@@ -19,6 +20,8 @@ public class Endereco {
     public int Numero;
     
     public Endereco(){
+      
+      IdEndereco = 0;
       Estado = "";
       Cidade = "";
       Bairro = "";
@@ -26,6 +29,15 @@ public class Endereco {
       Numero = 0;
     }
 
+    public int getIdEndereco() {
+        return IdEndereco;
+    }
+
+    public void setIdEndereco(int IdEndereco) {
+        this.IdEndereco = IdEndereco;
+    }
+
+    
     public String getEstado() {
         return Estado;
     }
@@ -69,11 +81,12 @@ public class Endereco {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 13 * hash + Objects.hashCode(this.Estado);
-        hash = 13 * hash + Objects.hashCode(this.Cidade);
-        hash = 13 * hash + Objects.hashCode(this.Bairro);
-        hash = 13 * hash + Objects.hashCode(this.Rua);
-        hash = 13 * hash + this.Numero;
+        hash = 83 * hash + this.IdEndereco;
+        hash = 83 * hash + Objects.hashCode(this.Estado);
+        hash = 83 * hash + Objects.hashCode(this.Cidade);
+        hash = 83 * hash + Objects.hashCode(this.Bairro);
+        hash = 83 * hash + Objects.hashCode(this.Rua);
+        hash = 83 * hash + this.Numero;
         return hash;
     }
 
@@ -86,6 +99,9 @@ public class Endereco {
             return false;
         }
         final Endereco other = (Endereco) obj;
+        if (this.IdEndereco != other.IdEndereco) {
+            return false;
+        }
         if (!Objects.equals(this.Estado, other.Estado)) {
             return false;
         }
@@ -106,6 +122,7 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return "Endereco{" + "Estado=" + Estado + ", Cidade=" + Cidade + ", Bairro=" + Bairro + ", Rua=" + Rua + ", Numero=" + Numero + '}';
+        return "Endereco{" + "IdEndereco=" + IdEndereco + ", Estado=" + Estado + ", Cidade=" + Cidade + ", Bairro=" + Bairro + ", Rua=" + Rua + ", Numero=" + Numero + '}';
     }
+    
 }
