@@ -17,13 +17,13 @@ public class Usuario {
     private int IdCodUsuario;
     private String Senha;
     private String Usuario;
-    private List <Pessoa> DadosPessoais;
+    private Pessoa DadosPessoais;
 
-    public Usuario() {
-        this.IdCodUsuario = 0;
-        this.Senha = "";
-        this.Usuario = "";
-        this.DadosPessoais = new LinkedList<Pessoa>();
+    public Usuario(int IdCodUsuario, String Senha, String Usuario, Pessoa DadosPessoais) {
+        this.IdCodUsuario = IdCodUsuario;
+        this.Senha = Senha;
+        this.Usuario = Usuario;
+        this.DadosPessoais = DadosPessoais;
     }
 
     public int getIdCodUsuario() {
@@ -50,21 +50,21 @@ public class Usuario {
         this.Usuario = Usuario;
     }
 
-    public List<Pessoa> getDadosPessoais() {
+    public Pessoa getDadosPessoais() {
         return DadosPessoais;
     }
 
-    public void setDadosPessoais(List<Pessoa> DadosPessoais) {
+    public void setDadosPessoais(Pessoa DadosPessoais) {
         this.DadosPessoais = DadosPessoais;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + this.IdCodUsuario;
-        hash = 89 * hash + Objects.hashCode(this.Senha);
-        hash = 89 * hash + Objects.hashCode(this.Usuario);
-        hash = 89 * hash + Objects.hashCode(this.DadosPessoais);
+        int hash = 3;
+        hash = 23 * hash + this.IdCodUsuario;
+        hash = 23 * hash + Objects.hashCode(this.Senha);
+        hash = 23 * hash + Objects.hashCode(this.Usuario);
+        hash = 23 * hash + Objects.hashCode(this.DadosPessoais);
         return hash;
     }
 
@@ -96,5 +96,6 @@ public class Usuario {
     public String toString() {
         return "Usuario{" + "IdCodUsuario=" + IdCodUsuario + ", Senha=" + Senha + ", Usuario=" + Usuario + ", DadosPessoais=" + DadosPessoais + '}';
     }
-       
+
+           
 }

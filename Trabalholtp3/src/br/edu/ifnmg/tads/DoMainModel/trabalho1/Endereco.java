@@ -18,6 +18,7 @@ public class Endereco {
     public String Bairro;
     public String Rua;
     public int Numero;
+    private Pessoa Pssoa;
     
     public Endereco(){
       
@@ -78,15 +79,24 @@ public class Endereco {
         this.Numero = Numero;
     }
 
+    public Pessoa getPssoa() {
+        return Pssoa;
+    }
+
+    public void setPssoa(Pessoa Pssoa) {
+        this.Pssoa = Pssoa;
+    }
+
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 83 * hash + this.IdEndereco;
-        hash = 83 * hash + Objects.hashCode(this.Estado);
-        hash = 83 * hash + Objects.hashCode(this.Cidade);
-        hash = 83 * hash + Objects.hashCode(this.Bairro);
-        hash = 83 * hash + Objects.hashCode(this.Rua);
-        hash = 83 * hash + this.Numero;
+        hash = 71 * hash + this.IdEndereco;
+        hash = 71 * hash + Objects.hashCode(this.Estado);
+        hash = 71 * hash + Objects.hashCode(this.Cidade);
+        hash = 71 * hash + Objects.hashCode(this.Bairro);
+        hash = 71 * hash + Objects.hashCode(this.Rua);
+        hash = 71 * hash + this.Numero;
+        hash = 71 * hash + Objects.hashCode(this.Pssoa);
         return hash;
     }
 
@@ -117,12 +127,15 @@ public class Endereco {
         if (this.Numero != other.Numero) {
             return false;
         }
+        if (!Objects.equals(this.Pssoa, other.Pssoa)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Endereco{" + "IdEndereco=" + IdEndereco + ", Estado=" + Estado + ", Cidade=" + Cidade + ", Bairro=" + Bairro + ", Rua=" + Rua + ", Numero=" + Numero + '}';
+        return "Endereco{" + "IdEndereco=" + IdEndereco + ", Estado=" + Estado + ", Cidade=" + Cidade + ", Bairro=" + Bairro + ", Rua=" + Rua + ", Numero=" + Numero + ", Pssoa=" + Pssoa + '}';
     }
     
 }

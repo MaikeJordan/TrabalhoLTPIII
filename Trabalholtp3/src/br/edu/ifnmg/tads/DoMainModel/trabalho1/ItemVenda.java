@@ -14,12 +14,12 @@ public class ItemVenda {
     
     private int IdVenda;
     private int Quantidade;
-    private Produto Produto;
+    private Produto Produt;
 
-    public ItemVenda() {
-        this.IdVenda = 0;
-        this.Quantidade = 0;
-        this.Produto = Produto;
+    public ItemVenda(int IdVenda, int Quantidade, Produto Produt) {
+        this.IdVenda = IdVenda;
+        this.Quantidade = Quantidade;
+        this.Produt = Produt;
     }
 
     public int getIdVenda() {
@@ -38,12 +38,12 @@ public class ItemVenda {
         this.Quantidade = Quantidade;
     }
 
-    public Produto getProduto() {
-        return Produto;
+    public Produto getProdut() {
+        return Produt;
     }
 
-    public void setProduto(Produto Produto) {
-        this.Produto = Produto;
+    public void setProdut(Produto Produt) {
+        this.Produt = Produt;
     }
 
     @Override
@@ -51,7 +51,7 @@ public class ItemVenda {
         int hash = 3;
         hash = 61 * hash + this.IdVenda;
         hash = 61 * hash + this.Quantidade;
-        hash = 61 * hash + Objects.hashCode(this.Produto);
+        hash = 61 * hash + Objects.hashCode(this.Produt);
         return hash;
     }
 
@@ -70,7 +70,7 @@ public class ItemVenda {
         if (this.Quantidade != other.Quantidade) {
             return false;
         }
-        if (!Objects.equals(this.Produto, other.Produto)) {
+        if (!Objects.equals(this.Produt, other.Produt)) {
             return false;
         }
         return true;
@@ -78,7 +78,7 @@ public class ItemVenda {
 
     @Override
     public String toString() {
-        return "ItemVenda{" + "IdVenda=" + IdVenda + ", Quantidade=" + Quantidade + ", Produto=" + Produto + '}';
+        return "ItemVenda{" + "IdVenda=" + IdVenda + ", Quantidade=" + Quantidade + ", Produto=" + Produt + '}';
     }   
     
 }
