@@ -159,7 +159,7 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void MenuItemPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemPessoaActionPerformed
         // TODO add your handling code here:
-        frmCadastroCliente janela = new frmCadastroCliente();
+        FrmCadastroClient janela = new FrmCadastroClient();
         add(janela);
         janela.setVisible(true);
     }//GEN-LAST:event_MenuItemPessoaActionPerformed

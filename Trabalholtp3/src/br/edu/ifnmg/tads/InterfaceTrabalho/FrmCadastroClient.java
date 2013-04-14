@@ -4,32 +4,19 @@
  */
 package br.edu.ifnmg.tads.InterfaceTrabalho;
 
-import br.edu.ifnmg.tads.DoMainModel.trabalho1.Pessoa;
-import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author alisson
+ * @author Lucas
  */
-public class frmCadastroCliente extends javax.swing.JInternalFrame {
-    private final Pessoa Pessoa;
-    private final LinkedList<Object> Email;
-    private final LinkedList<Object> Telefone;
-    private final LinkedList<Object> Endereco;
+public class FrmCadastroClient extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form frmCadastroCliente
+     * Creates new form FrmCadastroClient
      */
-    public frmCadastroCliente() {
+    public FrmCadastroClient() {
         initComponents();
-        Pessoa = new Pessoa();
-        Email = new LinkedList<>();
-        Telefone = new LinkedList<>();
-        Endereco = new LinkedList<>();
-        
-        
-        
     }
 
     /**
@@ -282,25 +269,33 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PainelDadosGerais)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(PainelDadosGerais)
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSalvar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCancelar)
-                .addContainerGap())
+                .addGap(38, 38, 38))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(27, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(PainelDadosGerais, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar)
                     .addComponent(btnCancelar))
@@ -324,16 +319,23 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-        if(JOptionPane.showConfirmDialog(rootPane, "Deseja cadastrar cliente?") == 0)
-            {
-             Pessoa p = (Pessoa) cbxPessoa.getSelectedItem();
-             
-            
-            
-            
-            }
-        
+        if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente adicionar o Cliente?")
+                == 0) {
+            JOptionPane.showMessageDialog(rootPane, "Cliente adicionado com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Ação cancelada pelo usuário!");
+
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        if(JOptionPane.showConfirmDialog(rootPane, "Deseja Cancelar?") == 0){
+           JOptionPane.showMessageDialog(rootPane, "Ação Cancela pelo Usuário");
+           }
+                   
+     
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane PainelDadosGerais;

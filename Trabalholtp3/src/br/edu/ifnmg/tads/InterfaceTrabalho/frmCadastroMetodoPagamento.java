@@ -4,6 +4,8 @@
  */
 package br.edu.ifnmg.tads.InterfaceTrabalho;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alisson
@@ -38,8 +40,18 @@ public class frmCadastroMetodoPagamento extends javax.swing.JInternalFrame {
         setMaximizable(true);
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Descrição");
 
@@ -96,6 +108,25 @@ public class frmCadastroMetodoPagamento extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente adicionar o Metódo?")
+                == 0) {
+            JOptionPane.showMessageDialog(rootPane, "Metódo adicionado com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Ação cancelada pelo usuário!");
+
+        }
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        if(JOptionPane.showConfirmDialog(rootPane, "Deseja Cancelar?") == 0){
+           JOptionPane.showMessageDialog(rootPane, "Ação Cancela pelo Usuário");
+           }
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
