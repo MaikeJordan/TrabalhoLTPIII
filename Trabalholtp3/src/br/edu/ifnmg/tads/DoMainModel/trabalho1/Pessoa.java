@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
+import javax.swing.JTextField;
 
 /**
  *
@@ -155,6 +156,18 @@ public class Pessoa {
     @Override
     public String toString() {
         return "Pessoa{" + "IdPessoa=" + IdPessoa + ", Nome=" + Nome + ", CPF=" + CPF + ", RG=" + RG + ", Nascimento=" + Nascimento + ", Emails=" + Emails + ", Telefones=" + Telefones + ", Enderecos=" + Enderecos + '}';
+    }
+
+    public void setNome(JTextField txtNome) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setCPF(JTextField txtCPF) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void setRG(JTextField txtRG) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

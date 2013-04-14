@@ -4,6 +4,8 @@
  */
 package br.edu.ifnmg.tads.InterfaceTrabalho;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alisson
@@ -101,8 +103,18 @@ public class frmCadastroProduto extends javax.swing.JInternalFrame {
         PainelProduto.addTab("Detalhes Produtos", jPanel1);
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,11 +140,31 @@ public class frmCadastroProduto extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar)
                     .addComponent(btnCancelar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        // TODO add your handling code here:
+        if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente adicionar o Produto?")
+                == 0) {
+            JOptionPane.showMessageDialog(rootPane, "Produto adicionado com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Ação cancelada pelo usuário!");
+
+        }
+        
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        if(JOptionPane.showConfirmDialog(rootPane, "Deseja Cancelar?") == 0){
+           JOptionPane.showMessageDialog(rootPane, "Ação Cancela pelo Usuário");
+           }
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane PainelProduto;
     private javax.swing.JButton btnCancelar;

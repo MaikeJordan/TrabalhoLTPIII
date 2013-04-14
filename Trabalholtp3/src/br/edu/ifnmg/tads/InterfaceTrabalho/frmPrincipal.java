@@ -54,6 +54,7 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenuItem7.setText("jMenuItem7");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Sistema de Gerenciamento de Vendas");
 
         jMenu1.setText("Cadastro");
         jMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -155,6 +156,9 @@ public class frmPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         // TODO add your handling code here:
+        frmListarMetodoPagamento janela = new frmListarMetodoPagamento();
+        add(janela);
+        janela.setVisible(true);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     private void MenuItemPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemPessoaActionPerformed
