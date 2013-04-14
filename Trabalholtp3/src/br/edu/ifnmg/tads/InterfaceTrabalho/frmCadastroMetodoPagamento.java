@@ -8,12 +8,12 @@ package br.edu.ifnmg.tads.InterfaceTrabalho;
  *
  * @author alisson
  */
-public class frmMetodoPagamento extends javax.swing.JInternalFrame {
+public class frmCadastroMetodoPagamento extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form frmMetodoPagamento
      */
-    public frmMetodoPagamento() {
+    public frmCadastroMetodoPagamento() {
         initComponents();
     }
 
@@ -32,6 +32,10 @@ public class frmMetodoPagamento extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
 
         btnSalvar.setText("Salvar");
 
@@ -57,7 +61,7 @@ public class frmMetodoPagamento extends javax.swing.JInternalFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Cadastro Metodo Pagamento", jPanel1);
