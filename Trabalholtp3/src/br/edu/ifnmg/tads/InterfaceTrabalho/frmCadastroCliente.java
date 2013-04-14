@@ -4,17 +4,32 @@
  */
 package br.edu.ifnmg.tads.InterfaceTrabalho;
 
+import br.edu.ifnmg.tads.DoMainModel.trabalho1.Pessoa;
+import java.util.LinkedList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author alisson
  */
 public class frmCadastroCliente extends javax.swing.JInternalFrame {
+    private final Pessoa Pessoa;
+    private final LinkedList<Object> Email;
+    private final LinkedList<Object> Telefone;
+    private final LinkedList<Object> Endereco;
 
     /**
      * Creates new form frmCadastroCliente
      */
     public frmCadastroCliente() {
         initComponents();
+        Pessoa = new Pessoa();
+        Email = new LinkedList<>();
+        Telefone = new LinkedList<>();
+        Endereco = new LinkedList<>();
+        
+        
+        
     }
 
     /**
@@ -26,7 +41,7 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PainelEndereco = new javax.swing.JTabbedPane();
+        PainelDadosGerais = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         lblNome = new javax.swing.JLabel();
         lblCPF = new javax.swing.JLabel();
@@ -37,14 +52,14 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
         txtRG = new javax.swing.JTextField();
         txtDataNasc = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        lblRua = new javax.swing.JLabel();
         txtRua = new javax.swing.JTextField();
         lblBairro = new javax.swing.JLabel();
         lblCidade = new javax.swing.JLabel();
         lblCEP = new javax.swing.JLabel();
         lblEstado = new javax.swing.JLabel();
         lblNumero = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        txtNum = new javax.swing.JTextField();
         txtBairro = new javax.swing.JTextField();
         txtCEP = new javax.swing.JTextField();
         txtCidade = new javax.swing.JTextField();
@@ -121,9 +136,9 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
                 .addContainerGap(100, Short.MAX_VALUE))
         );
 
-        PainelEndereco.addTab("Dados Gerais", jPanel1);
+        PainelDadosGerais.addTab("Dados Gerais", jPanel1);
 
-        jLabel2.setText("Rua");
+        lblRua.setText("Rua");
 
         lblBairro.setText("Bairro");
 
@@ -156,7 +171,7 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblEstado)
                     .addComponent(lblCidade)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblRua, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblBairro, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCEP, javax.swing.GroupLayout.Alignment.LEADING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -166,7 +181,7 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(lblNumero)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtNum, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCEP, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,10 +193,10 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(lblRua)
                     .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblNumero)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,7 +216,13 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
-        PainelEndereco.addTab("Enderecos", jPanel4);
+        PainelDadosGerais.addTab("Enderecos", jPanel4);
+
+        txtTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefoneActionPerformed(evt);
+            }
+        });
 
         lblTelefone.setText("Telefone");
 
@@ -226,7 +247,7 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
                 .addContainerGap(171, Short.MAX_VALUE))
         );
 
-        PainelEndereco.addTab("Telefone", jPanel2);
+        PainelDadosGerais.addTab("Telefone", jPanel2);
 
         lblEmail.setText("Email");
 
@@ -251,9 +272,14 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
                 .addContainerGap(173, Short.MAX_VALUE))
         );
 
-        PainelEndereco.addTab("Emails", jPanel3);
+        PainelDadosGerais.addTab("Emails", jPanel3);
 
         btnSalvar.setText("Salvar");
+        btnSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setText("Cancelar");
 
@@ -261,7 +287,7 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PainelEndereco)
+            .addComponent(PainelDadosGerais)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnSalvar)
@@ -272,8 +298,8 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(PainelEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(PainelDadosGerais, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvar)
@@ -292,16 +318,31 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEstadoActionPerformed
 
+    private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefoneActionPerformed
+
+    private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
+        // TODO add your handling code here:
+        if(JOptionPane.showConfirmDialog(rootPane, "Deseja cadastrar cliente?") == 0)
+            {
+             Pessoa p = (Pessoa) cbxPessoa.getSelectedItem();
+             
+            
+            
+            
+            }
+        
+    }//GEN-LAST:event_btnSalvarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTabbedPane PainelEndereco;
+    private javax.swing.JTabbedPane PainelDadosGerais;
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnSalvar;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JLabel lblBairro;
     private javax.swing.JLabel lblCEP;
     private javax.swing.JLabel lblCPF;
@@ -312,6 +353,7 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblNome;
     private javax.swing.JLabel lblNumero;
     private javax.swing.JLabel lblRG;
+    private javax.swing.JLabel lblRua;
     private javax.swing.JLabel lblTelefone;
     private javax.swing.JTextField txrEmail;
     private javax.swing.JTextField txtBairro;
@@ -321,6 +363,7 @@ public class frmCadastroCliente extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtDataNasc;
     private javax.swing.JTextField txtEstado;
     private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtNum;
     private javax.swing.JTextField txtRG;
     private javax.swing.JTextField txtRua;
     private javax.swing.JTextField txtTelefone;
