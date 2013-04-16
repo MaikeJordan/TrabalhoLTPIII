@@ -131,6 +131,11 @@ public class frmPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem10);
 
         jMenuItem11.setText("Vender");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMenuItem11);
 
         jMenuBar1.add(jMenu2);
@@ -210,6 +215,13 @@ public class frmPrincipal extends javax.swing.JFrame {
         add(janela);
         janela.setVisible(true);
     }//GEN-LAST:event_menuLComprasActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+        frmEfetuarVenda janela = new frmEfetuarVenda();
+        add(janela);
+        janela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     /**
      * @param args the command line arguments

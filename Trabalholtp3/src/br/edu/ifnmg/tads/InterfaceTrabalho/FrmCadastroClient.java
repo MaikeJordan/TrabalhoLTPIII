@@ -339,8 +339,6 @@ public class FrmCadastroClient extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente adicionar o Cliente?")
                 == 0) {
-            Cliente.setNome(txtNome);
-            Cliente.setCPF(txtCPF);
             JOptionPane.showMessageDialog(rootPane, "Cliente adicionado com sucesso!");
         } else {
             JOptionPane.showMessageDialog(rootPane, "Ação cancelada pelo usuário!");
