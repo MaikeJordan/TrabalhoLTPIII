@@ -4,7 +4,9 @@
  */
 package br.edu.ifnmg.tads.InterfaceTrabalho;
 
+import br.edu.ifnmg.tads.DataAcess.DAOCliente;
 import br.edu.ifnmg.tads.DoMainModel.trabalho1.Pessoa;
+import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 /**
@@ -339,6 +341,15 @@ public class FrmCadastroClient extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente adicionar o Cliente?")
                 == 0) {
+            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+            Pessoa cliente = new Pessoa();
+            cliente.setNome(txtNome.getText());
+            cliente.setCPF(txtCPF.getText());
+            cliente.setRG(txtRG.getText());
+            
+            
+            DAOCliente dao = new DAOCliente();
+            dao.Salvar(cliente);            
             JOptionPane.showMessageDialog(rootPane, "Cliente adicionado com sucesso!");
         } else {
             JOptionPane.showMessageDialog(rootPane, "Ação cancelada pelo usuário!");
