@@ -4,28 +4,24 @@
  */
 package br.edu.ifnmg.tads.DoMainModel.trabalho1;
 
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Objects;
 
 /**
  *
  * @author Maike Jordan
  */
-public class Usuario {
+public class Usuario extends Pessoa {
     
     private int IdCodUsuario;
     private String Senha;
     private String Usuario;
-    private Pessoa DadosPessoais;
 
-    public Usuario(int IdCodUsuario, String Senha, String Usuario, Pessoa DadosPessoais) {
+    public Usuario(int IdCodUsuario, String Senha, String Usuario) {
         this.IdCodUsuario = IdCodUsuario;
         this.Senha = Senha;
         this.Usuario = Usuario;
-        this.DadosPessoais = DadosPessoais;
     }
-
+    
     public int getIdCodUsuario() {
         return IdCodUsuario;
     }
@@ -50,21 +46,12 @@ public class Usuario {
         this.Usuario = Usuario;
     }
 
-    public Pessoa getDadosPessoais() {
-        return DadosPessoais;
-    }
-
-    public void setDadosPessoais(Pessoa DadosPessoais) {
-        this.DadosPessoais = DadosPessoais;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 23 * hash + this.IdCodUsuario;
-        hash = 23 * hash + Objects.hashCode(this.Senha);
-        hash = 23 * hash + Objects.hashCode(this.Usuario);
-        hash = 23 * hash + Objects.hashCode(this.DadosPessoais);
+        int hash = 7;
+        hash = 59 * hash + this.IdCodUsuario;
+        hash = 59 * hash + Objects.hashCode(this.Senha);
+        hash = 59 * hash + Objects.hashCode(this.Usuario);
         return hash;
     }
 
@@ -86,16 +73,12 @@ public class Usuario {
         if (!Objects.equals(this.Usuario, other.Usuario)) {
             return false;
         }
-        if (!Objects.equals(this.DadosPessoais, other.DadosPessoais)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "IdCodUsuario=" + IdCodUsuario + ", Senha=" + Senha + ", Usuario=" + Usuario + ", DadosPessoais=" + DadosPessoais + '}';
+        return "Usuario{" + "IdCodUsuario=" + IdCodUsuario + ", Senha=" + Senha + ", Usuario=" + Usuario + '}';
     }
-
-           
+               
 }

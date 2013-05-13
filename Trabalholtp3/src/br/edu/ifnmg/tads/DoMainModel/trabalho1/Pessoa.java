@@ -25,7 +25,7 @@ public class Pessoa {
     private List <Telefone> Telefones;
     private List <Endereco> Enderecos;
 
-    public Pessoa() {
+     public Pessoa(){
         
         this.IdPessoa = 0;
         this.Nome = "";
@@ -36,7 +36,7 @@ public class Pessoa {
         this.Telefones = new LinkedList<Telefone>();
         this.Enderecos = new LinkedList<Endereco>();
     }
-
+    
     public int getIdPessoa() {
         return IdPessoa;
     }
