@@ -6,13 +6,15 @@ package br.edu.ifnmg.tads.InterfaceTrabalho;
 
 import br.edu.ifnmg.tads.DataAcess.DAOCliente;
 import br.edu.ifnmg.tads.DataAcess.DAOProduto;
+import br.edu.ifnmg.tads.DataAcess.DAOVenda;
 import br.edu.ifnmg.tads.DoMainModel.trabalho1.ItemVenda;
 import br.edu.ifnmg.tads.DoMainModel.trabalho1.Pessoa;
 import br.edu.ifnmg.tads.DoMainModel.trabalho1.Produto;
 import br.edu.ifnmg.tads.DoMainModel.trabalho1.Venda;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,26 +28,26 @@ public class frmEfetuarVenda extends javax.swing.JInternalFrame {
     Venda venda;
     ItemVenda item;
     List<Produto> produtos;
-    List<Pessoa> clientes;
-    DAOProduto produto;
-    DAOCliente cliente;
-    //DAOVenda venda;
-    //DAOItemVenda Item;
+    List<Pessoa> cliente;
+    DAOProduto daoproduto;
+    DAOCliente daocliente;
+    DAOVenda daovenda;
     
     public frmEfetuarVenda() {
         initComponents();
-        cliente = new DAOCliente();
-        produto = new DAOProduto();
+        daocliente = new DAOCliente();
+        daoproduto = new DAOProduto();
+        daovenda   = new DAOVenda();
         
-        produtos = produto.listarTodos();
-        clientes = cliente.listarTodos();
+        produtos = daoproduto.listarTodos();
+        cliente = daocliente.listarTodos();
         cbxCliente.removeAllItems();
         cbxProduto.removeAllItems();
         
         for (Produto p : produtos){
             cbxProduto.addItem(p.getDescricao());
         }
-        for (Pessoa p : clientes){
+        for (Pessoa p : cliente){
             cbxCliente.addItem(p.getNome());
         }
     }
@@ -66,14 +68,14 @@ public class frmEfetuarVenda extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         txtData = new javax.swing.JFormattedTextField();
-        jLabel6 = new javax.swing.JLabel();
+        lblValortotal = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         cbxProduto = new javax.swing.JComboBox();
         jLabel3 = new javax.swing.JLabel();
         txtQtde = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblItensvenda = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jToggleButton1 = new javax.swing.JToggleButton();
@@ -90,6 +92,8 @@ public class frmEfetuarVenda extends javax.swing.JInternalFrame {
         jLabel4.setText("Valor Total");
 
         jLabel5.setText("Data");
+
+        lblValortotal.setText("0");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -109,7 +113,7 @@ public class frmEfetuarVenda extends javax.swing.JInternalFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)))
+                        .addComponent(lblValortotal)))
                 .addContainerGap(371, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -126,7 +130,7 @@ public class frmEfetuarVenda extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jLabel6))
+                    .addComponent(lblValortotal))
                 .addContainerGap(118, Short.MAX_VALUE))
         );
 
@@ -149,7 +153,7 @@ public class frmEfetuarVenda extends javax.swing.JInternalFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblItensvenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -160,7 +164,7 @@ public class frmEfetuarVenda extends javax.swing.JInternalFrame {
 
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblItensvenda);
 
         jButton1.setText("Add");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -251,12 +255,30 @@ public class frmEfetuarVenda extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jToggleButton1)
                     .addComponent(jToggleButton2))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+    private void configuraTblItemvenda(){
+        lblValortotal.setText(Float.toString(venda.getValorTotal()));
+    
+        DefaultTableModel model = new DefaultTableModel();
+        
+        model.addColumn("ID");
+        model.addColumn("Produto");
+        model.addColumn("Quantidade");
 
+        for (ItemVenda i : venda.getItens()) {
+            Vector v = new Vector();
+            v.add(i.getIdVenda());
+            v.add(i.getProdut().getDescricao());
+            v.add(i.getQuantidade());            
+            model.addRow(v);
+        }
+        tblItensvenda.setModel(model);
+    }
+    
     private void cbxProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxProdutoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxProdutoActionPerformed
@@ -293,6 +315,7 @@ public class frmEfetuarVenda extends javax.swing.JInternalFrame {
         item.setQuantidade(qtd);
         
         venda.add(item);
+        configuraTblItemvenda();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -305,14 +328,14 @@ public class frmEfetuarVenda extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JLabel lblValortotal;
+    private javax.swing.JTable tblItensvenda;
     private javax.swing.JFormattedTextField txtData;
     private javax.swing.JTextField txtQtde;
     // End of variables declaration//GEN-END:variables
