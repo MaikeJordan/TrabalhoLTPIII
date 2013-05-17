@@ -219,7 +219,7 @@ public class frmEditarCliente extends javax.swing.JInternalFrame {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
-        if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente adicionar o Cliente?")
+        if (JOptionPane.showConfirmDialog(rootPane, "Deseja realmente alterar o Cliente?")
                 == 0) {
             carregaObjeto();
             Pessoa cliente2 = new Pessoa();

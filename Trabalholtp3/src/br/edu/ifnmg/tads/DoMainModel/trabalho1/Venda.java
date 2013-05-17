@@ -4,7 +4,7 @@
  */
 package br.edu.ifnmg.tads.DoMainModel.trabalho1;
 
-import java.util.LinkedList;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -19,13 +19,24 @@ public class Venda {
     private float ValorTotal;
     private int IdVenda;
     private List<ItemVenda> itens;
+    private Date data;
 
-    public Venda(Pessoa Pessoas, Usuario User, float ValorTotal, int IdVenda, List<ItemVenda> itens) {
+    public Venda(Pessoa Pessoas, Usuario User, float ValorTotal, int IdVenda, List<ItemVenda> itens, Date data) {
         this.Pessoas = Pessoas;
         this.User = User;
         this.ValorTotal = ValorTotal;
         this.IdVenda = IdVenda;
         this.itens = itens;
+        this.data = data;
+    }
+    
+    public Venda() {
+        this.Pessoas = null;
+        this.User = null;
+        this.ValorTotal = 0;
+        this.IdVenda = 0;
+        this.itens = null;
+        this.data = null;
     }
 
     public Pessoa getPessoas() {
@@ -67,6 +78,14 @@ public class Venda {
     public void setItens(List<ItemVenda> itens) {
         this.itens = itens;
     }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
     
     public void add(ItemVenda i){
         if(!itens.contains(i)){
@@ -84,10 +103,10 @@ public class Venda {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 59 * hash + Objects.hashCode(this.Pessoas);
-        hash = 59 * hash + Objects.hashCode(this.User);
-        hash = 59 * hash + Float.floatToIntBits(this.ValorTotal);
+        int hash = 5;
+        hash = 37 * hash + Objects.hashCode(this.User);
+        hash = 37 * hash + Float.floatToIntBits(this.ValorTotal);
+        hash = 37 * hash + Objects.hashCode(this.data);
         return hash;
     }
 
@@ -100,13 +119,13 @@ public class Venda {
             return false;
         }
         final Venda other = (Venda) obj;
-        if (!Objects.equals(this.Pessoas, other.Pessoas)) {
-            return false;
-        }
         if (!Objects.equals(this.User, other.User)) {
             return false;
         }
         if (Float.floatToIntBits(this.ValorTotal) != Float.floatToIntBits(other.ValorTotal)) {
+            return false;
+        }
+        if (!Objects.equals(this.data, other.data)) {
             return false;
         }
         return true;
@@ -114,6 +133,7 @@ public class Venda {
 
     @Override
     public String toString() {
-        return "Venda{" + "Pessoas=" + Pessoas + ", User=" + User + ", ValorTotal=" + ValorTotal + ", IdVenda=" + IdVenda + ", itens=" + itens + '}';
+        return "Venda{" + "Pessoas=" + Pessoas + ", User=" + User + ", ValorTotal=" + ValorTotal + ", IdVenda=" + IdVenda + ", itens=" + itens + ", data=" + data + '}';
     }
+
 }

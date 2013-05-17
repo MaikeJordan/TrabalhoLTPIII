@@ -15,19 +15,22 @@ public class ItemVenda {
     private int IdVenda;
     private int Quantidade;
     private Produto Produt;
-
-    public ItemVenda(int IdVenda, int Quantidade, Produto Produt) {
+    private boolean ativo;
+    
+    public ItemVenda(int IdVenda, int Quantidade, Produto Produt, boolean Ativo) {
         this.IdVenda = IdVenda;
         this.Quantidade = Quantidade;
         this.Produt = Produt;
+        this.ativo = Ativo;
     }
 
     public ItemVenda() {
         this.IdVenda = 0;
         this.Quantidade = 0;
         this.Produt = null;
+        this.ativo = true;
     }
-    
+
     public int getIdVenda() {
         return IdVenda;
     }
@@ -52,12 +55,20 @@ public class ItemVenda {
         this.Produt = Produt;
     }
 
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 61 * hash + this.IdVenda;
+        int hash = 7;
         hash = 61 * hash + this.Quantidade;
         hash = 61 * hash + Objects.hashCode(this.Produt);
+        hash = 61 * hash + (this.ativo ? 1 : 0);
         return hash;
     }
 
@@ -70,13 +81,13 @@ public class ItemVenda {
             return false;
         }
         final ItemVenda other = (ItemVenda) obj;
-        if (this.IdVenda != other.IdVenda) {
-            return false;
-        }
         if (this.Quantidade != other.Quantidade) {
             return false;
         }
         if (!Objects.equals(this.Produt, other.Produt)) {
+            return false;
+        }
+        if (this.ativo != other.ativo) {
             return false;
         }
         return true;
@@ -84,7 +95,7 @@ public class ItemVenda {
 
     @Override
     public String toString() {
-        return "ItemVenda{" + "IdVenda=" + IdVenda + ", Quantidade=" + Quantidade + ", Produto=" + Produt + '}';
-    }   
+        return "ItemVenda{" + "IdVenda=" + IdVenda + ", Quantidade=" + Quantidade + ", Produt=" + Produt + ", ativo=" + ativo + '}';
+    }
     
 }
